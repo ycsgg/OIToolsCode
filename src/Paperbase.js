@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Header from './Header';
 import Home from './Home';
 import ClippedDrawer from './Navigator';
 import clsx from 'clsx';
+import { Route, MemoryRouter as Router } from 'react-router';
+import About from './About';
+import { Container } from '@material-ui/core';
 
 function Copyright() {
     return (
@@ -212,38 +214,48 @@ function Paperbase(props) {
     };
     return (
         <ThemeProvider theme={theme}>
-            <div className={classes.root}>
-
-                <CssBaseline />
-                <nav >
-                    <ClippedDrawer open={open} />
-                </nav>
-                <div className={classes.app} color="primary">
-                    <Header
-                        handleDrawerToggle={handleDrawerToggle}
-                        open={open}
-                        className={
-                            clsx(classes.appBar, {
-                                [classes.appBarShift]: open,
+            <Router>
+                <div className={classes.root} color='#009BE5'>
+                    <nav >
+                        <ClippedDrawer open={open} />
+                    </nav>
+                    <div className={classes.app} color="#009BE5">
+                        <Header
+                            handleDrawerToggle={handleDrawerToggle}
+                            open={open}
+                            className={
+                                clsx(classes.appBar, {
+                                    [classes.appBarShift]: open,
+                                })
+                            }
+                        />
+                        <main
+                            className={clsx(classes.content, {
+                                [classes.contentShift]: open,
+                            })}
+                            color="#009BE5"
+                        >
+                            <Route exact path='/' component={Home} />
+                            <Route path='/calc' component={Home} />
+                            <Route path='/random' component={Home} />
+                            <Route path='/visual' component={Home} />
+                            <Route path='/draw' component={Home} />
+                            <Container>
+                                <Route path='/setting' component={Home} />
+                                <Route path='/about' component={About} />
+                                <Route path='/help' component={Home} />
+                            </Container>
+                        </main>
+                        <footer className={
+                            clsx(classes.footer, {
+                                [classes.footerShift]: open,
                             })
-                        }
-                    />
-                    <main
-                        className={clsx(classes.content, {
-                            [classes.contentShift]: open,
-                        })}
-                    >
-                        <Home />
-                    </main>
-                    <footer className={
-                        clsx(classes.footer, {
-                            [classes.footerShift]: open,
-                        })
-                    }>
-                        <Copyright />
-                    </footer>
+                        }>
+                            <Copyright />
+                        </footer>
+                    </div>
                 </div>
-            </div>
+            </Router>
         </ThemeProvider>
     );
 }

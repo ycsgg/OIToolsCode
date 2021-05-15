@@ -12,6 +12,9 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';
 import ListIcon from '@material-ui/icons/List';
 import SettingsIcon from '@material-ui/icons/Settings';
+import InfoIcon from '@material-ui/icons/Info';
+import HelpIcon from '@material-ui/icons/Help';
+import { Link, Link as RouterLink } from 'react-router-dom';
 
 const drawerWidth = 200;
 
@@ -27,6 +30,24 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
     },
 }));
+
+function ListItemLink(props) {
+    const { icon, primary, to } = props;
+
+    const renderLink = React.useMemo(
+        () => React.forwardRef((itemProps, ref) => <Link to={to} ref={ref} {...itemProps} />),
+        [to],
+    );
+
+    return (
+        <li>
+            <ListItem button component={renderLink}>
+                {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+                <ListItemText primary={primary} />
+            </ListItem>
+        </li>
+    );
+}
 
 export default function ClippedDrawer(props) {
     const classes = useStyles();
@@ -47,12 +68,44 @@ export default function ClippedDrawer(props) {
                 return <AppsIcon />
         }
     }
+    function switchAppLinks(index) {
+        switch (index) {
+            case 0:
+                return "/"
+            case 1:
+                return "/calc"
+            case 2:
+                return "/random"
+            case 3:
+                return "/visual"
+            case 4:
+                return "/draw"
+            default:
+                return "/"
+        }
+    }
     function switchOtherIcon(index) {
         switch (index) {
             case 0:
                 return <SettingsIcon />
+            case 1:
+                return <InfoIcon />
+            case 2:
+                return <HelpIcon />
             default:
                 return <SettingsIcon />
+        }
+    }
+    function switchOtherLinks(index) {
+        switch (index) {
+            case 0:
+                return "/setting"
+            case 1:
+                return "/about"
+            case 2:
+                return "/help"
+            default:
+                return "/setting"
         }
     }
     return (
@@ -67,27 +120,19 @@ export default function ClippedDrawer(props) {
         >
             <List>
                 {['首页', '计算', '随机', '可视化', '画图'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {
-                                switchAppIcon(index)
-                            }
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
+                    <ListItemLink
+                        to={switchAppLinks(index)}
+                        primary={text}
+                        icon={switchAppIcon(index)} />
                 ))}
             </List>
             <Divider />
             <List>
-                {['设置'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {
-                                switchOtherIcon(index)
-                            }
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
+                {['设置', '关于', '帮助'].map((text, index) => (
+                    <ListItemLink
+                        to={switchOtherLinks(index)}
+                        primary={text}
+                        icon={switchOtherIcon(index)} />
                 ))}
             </List>
         </Drawer>

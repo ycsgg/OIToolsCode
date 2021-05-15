@@ -11,9 +11,8 @@ import { Typography } from '@material-ui/core';
 import { CardActions } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import Icon from '@material-ui/core/Icon';
-import { TextField } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = (theme) => ({
     paper: {
@@ -50,16 +49,12 @@ const useStyles = makeStyles({
         minWidth: 275,
     },
     title: {
-        fontSize: 14,
+        fontSize: 15,
     },
     pos: {
         marginBottom: 12,
     },
 });
-
-function GetContestContent(params) {
-    
-}
 
 function ContestContent() {
     const classes = useStyles();
@@ -69,13 +64,10 @@ function ContestContent() {
                 <Card className={classes.root} variant="outlined">
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            AtCoder Regular Contest 199
+                            AtCoder Regular Contest 888
                         </Typography>
-                        <Typography className={classes.pos} color="textPrimary" align="center">
-                            填充内容
-                            <br />
-                            填充内容
-                            <br />
+                        <Typography color="textPrimary" align="center">
+                            <CircularProgress />
                         </Typography>
                         <Typography align="right">
                                 {new Date().toLocaleString()}
@@ -96,7 +88,6 @@ function ContestContent() {
                                         报名
                                     </Typography>
                                 </Button>
-
                             </CardActions>
                         </Grid>
                     </Grid>

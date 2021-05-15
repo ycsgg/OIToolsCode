@@ -12,6 +12,7 @@ function createWindow() {
             javascript: true,
             plugins: true,
             // preload: path.join(__dirname,"")
+            webSecurity: false
         }
     })
     if (true) {
