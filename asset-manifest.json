@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/OITools/static/css/main.6c17602b.chunk.css",
+    "main.js": "/OITools/static/js/main.8f83e4d3.chunk.js",
+    "main.js.map": "/OITools/static/js/main.8f83e4d3.chunk.js.map",
+    "runtime-main.js": "/OITools/static/js/runtime-main.7387ba82.js",
+    "runtime-main.js.map": "/OITools/static/js/runtime-main.7387ba82.js.map",
+    "static/js/2.997358dc.chunk.js": "/OITools/static/js/2.997358dc.chunk.js",
+    "static/js/2.997358dc.chunk.js.map": "/OITools/static/js/2.997358dc.chunk.js.map",
+    "static/js/3.20fc5d15.chunk.js": "/OITools/static/js/3.20fc5d15.chunk.js",
+    "static/js/3.20fc5d15.chunk.js.map": "/OITools/static/js/3.20fc5d15.chunk.js.map",
+    "index.html": "/OITools/index.html",
+    "static/css/main.6c17602b.chunk.css.map": "/OITools/static/css/main.6c17602b.chunk.css.map",
+    "static/js/2.997358dc.chunk.js.LICENSE.txt": "/OITools/static/js/2.997358dc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7387ba82.js",
+    "static/js/2.997358dc.chunk.js",
+    "static/css/main.6c17602b.chunk.css",
+    "static/js/main.8f83e4d3.chunk.js"
+  ]
+}
