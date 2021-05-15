@@ -28,6 +28,12 @@ export default function About() {
                         <p />
                         先放着吧
                         <p />
+                        首页的比赛不是真的加载不出来
+                        <p />
+                        只是我不会前端跨域抓取网页而已
+                        <p />
+                        不准备解决，准备搞桌面版
+                        <p />
                         <b>
                             Asusetic eru quionours
                         </b>

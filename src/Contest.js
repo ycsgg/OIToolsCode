@@ -13,6 +13,7 @@ import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import SendIcon from '@material-ui/icons/Send';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { TextField } from '@material-ui/core';
 
 const styles = (theme) => ({
     paper: {
@@ -70,7 +71,8 @@ function ContestContent() {
                             <CircularProgress />
                         </Typography>
                         <Typography align="right">
-                                {new Date().toLocaleString()}
+                            {new Date().toLocaleString()}
+
                         </Typography>
                     </CardContent>
                     <Grid container>
@@ -134,10 +136,10 @@ function Content(props) {
             elevation={0}
         >
             <Tabs value={value} textColor="inherit" onChange={handleChange}>
-                <Tab textColor="inherit" label="AtCode" />
+                <Tab textColor="inherit" label="AtCoder" />
                 <Tab textColor="inherit" label="CodeForces" />
-                <Tab textColor="inherit" label="Luogu" />
-                <Tab textColor="inherit" label="TopCoder" />
+                <Tab textColor="inherit" label="Luogu" disabled />
+                <Tab textColor="inherit" label="TopCoder" disabled />
             </Tabs>
             <SwipeableViews
                 axis={'x'}

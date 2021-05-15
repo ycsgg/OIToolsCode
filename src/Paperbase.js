@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import { Route, MemoryRouter as Router } from 'react-router';
 import About from './About';
 import { Container } from '@material-ui/core';
+import Calc from './Calc';
 
 function Copyright() {
     return (
@@ -236,14 +237,14 @@ function Paperbase(props) {
                             color="#009BE5"
                         >
                             <Route exact path='/' component={Home} />
-                            <Route path='/calc' component={Home} />
+                            <Route path='/calc' component={Calc} />
                             <Route path='/random' component={Home} />
                             <Route path='/visual' component={Home} />
                             <Route path='/draw' component={Home} />
                             <Container>
                                 <Route path='/setting' component={Home} />
                                 <Route path='/about' component={About} />
-                                <Route path='/help' component={Home} />
+                                <Route path='/help' component={About} />
                             </Container>
                         </main>
                         <footer className={

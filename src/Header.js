@@ -12,7 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import ClippedDrawer from './Navigator';
+import { Link } from 'react-router-dom';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -40,6 +40,10 @@ const styles = (theme) => ({
 
 function Header(props) {
     const { classes, handleDrawerToggle, open, className } = props;
+    const HelpLink = React.useMemo(
+        () => React.forwardRef((itemProps, ref) => <Link to={'/help'} ref={ref} {...itemProps} />),
+        ['/help'],
+    );
     return (
         <React.Fragment>
             <AppBar
@@ -91,7 +95,7 @@ function Header(props) {
                         </Grid>
                         <Grid item>
                             <Tooltip title="帮助">
-                                <IconButton color="inherit" href="https://www.baidu.com">
+                                <IconButton color="inherit" component={HelpLink}>
                                     <HelpIcon />
                                 </IconButton>
                             </Tooltip>
